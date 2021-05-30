@@ -1,5 +1,7 @@
 <template>
-  <div class="hello">
+ 
+<div id="first">
+    
     <ApolloQuery :query="require('../graphql/allPeople.gql')">
       <template v-slot="{result:{loading,error,data}}">
         <div v-if="data">
@@ -18,33 +20,43 @@
         <div v-else>No result1</div>
       </template>
     </ApolloQuery>
-  </div>
+</div>
 </template>
 
+
 <script>
-/*import gql from 'graphql-tag';*/
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+  name: 'Sidebar',
+ 
 }
 </script>
+<style>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+#first {
+    width: 350px;
+    height:calc(100vh - 52px) !important;
+    float:left; 
+    border: 1px solid grey;
+    overflow-y: auto;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+#first::-webkit-scrollbar{
+    width:7px;
+    background:white;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+#first::-webkit-scrollbar-thumb{
+     width:5px;
+    background:white;
+    border-radius:8px;
 }
-a {
-  color: #42b983;
+
+#first::-webkit-scrollbar:hover{
+    width:7px;
+    background:grey;
+}
+#first::-webkit-scrollbar-thumb:hover{
+     width:5px;
+    background:black;
+    border-radius:8px;
 }
 </style>
