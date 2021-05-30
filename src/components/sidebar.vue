@@ -6,7 +6,8 @@
       <template v-slot="{result:{loading,error,data}}">
         <div v-if="data">
           <div v-for="person in data.allPeople.people" :key="person.id" class="user-wrapper">
-          <div>
+          <div style="cursor:pointer; font-weight:bold;" 
+          @click="show_data(person.eyeColor,person.hairColor,person.skinColor,person.birthYear)">
             {{person.name}}
           </div>
           <div>
@@ -25,10 +26,29 @@
 
 
 <script>
+import {bus} from '../main';
 export default {
   name: 'Sidebar',
- 
+ data(){
+     return{
+         data_object:{},
+     }
+ },
+  methods: {
+    show_data(person_eyeColor,person_hairColor,person_skinColor,person_birthYear){
+       // console.log('si fffghola '+this.fres);
+      // this.fres=planeta;
+      this.data_object={
+          eyeColor:person_eyeColor,
+          hairColor:person_hairColor,
+          skinColor:person_skinColor,
+          birthYear:person_birthYear
+      }
+       bus.$emit('mostrarDatos',this.data_object);
+    }
+  }
 }
+
 </script>
 <style>
 

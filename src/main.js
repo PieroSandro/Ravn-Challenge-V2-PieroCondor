@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import { createProvider } from './vue-apollo'
 
+export const bus=new Vue();
 Vue.config.productionTip = false
 
 new Vue({
