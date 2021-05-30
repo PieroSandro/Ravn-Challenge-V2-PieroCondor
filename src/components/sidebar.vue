@@ -6,16 +6,17 @@
       <template v-slot="{result:{loading,error,data}}">
         <div v-if="data">
           <div v-for="person in data.allPeople.people" :key="person.id" class="user-wrapper">
-          <div style="cursor:pointer; font-weight:bold;" 
+          <div class="person_data" 
           @click="show_data(person.eyeColor,person.hairColor,person.skinColor,person.birthYear,person.vehicleConnection.vehicles)">
             {{person.name}}
+            <template v-if="person.species==null">
+           Human
+            </template>
+            <template v-else>
+              {{person.species.name}}
+            </template>
+          from {{person.homeworld.name}}
           </div>
-          <div>
-            {{person.homeworld.name}}
-          </div>
-      <!--    <div>
-            {{person.vehicleConnection.vehicles[0]}}
-          </div>-->
          
           </div>
         </div>
@@ -39,8 +40,6 @@ export default {
  },
   methods: {
     show_data(person_eyeColor,person_hairColor,person_skinColor,person_birthYear,person_vehicleConnection_vehicles){
-       // console.log('si fffghola '+this.fres);
-      // this.fres=planeta;
       this.data_object={
           eyeColor:person_eyeColor,
           hairColor:person_hairColor,
@@ -82,5 +81,14 @@ export default {
      width:5px;
     background:black;
     border-radius:8px;
+}
+
+.person_data{
+  height:69px;
+  width:349px;
+  border-style: solid;
+  border-width:1px;
+  border-color:red;
+  cursor:pointer;
 }
 </style>
