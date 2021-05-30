@@ -1,0 +1,23 @@
+query{
+  allPeople{
+    people{
+        id,
+      name,
+      homeworld{
+        name
+      },
+      species{
+        name
+      },
+      eyeColor,
+      hairColor,
+      skinColor,
+      birthYear,
+      vehicleConnection{
+        vehicles{
+          vehicleClass
+        }
+      }
+    }
+  }
+}
