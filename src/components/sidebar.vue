@@ -7,12 +7,15 @@
         <div v-if="data">
           <div v-for="person in data.allPeople.people" :key="person.id" class="user-wrapper">
           <div style="cursor:pointer; font-weight:bold;" 
-          @click="show_data(person.eyeColor,person.hairColor,person.skinColor,person.birthYear)">
+          @click="show_data(person.eyeColor,person.hairColor,person.skinColor,person.birthYear,person.vehicleConnection.vehicles)">
             {{person.name}}
           </div>
           <div>
             {{person.homeworld.name}}
           </div>
+      <!--    <div>
+            {{person.vehicleConnection.vehicles[0]}}
+          </div>-->
          
           </div>
         </div>
@@ -35,14 +38,15 @@ export default {
      }
  },
   methods: {
-    show_data(person_eyeColor,person_hairColor,person_skinColor,person_birthYear){
+    show_data(person_eyeColor,person_hairColor,person_skinColor,person_birthYear,person_vehicleConnection_vehicles){
        // console.log('si fffghola '+this.fres);
       // this.fres=planeta;
       this.data_object={
           eyeColor:person_eyeColor,
           hairColor:person_hairColor,
           skinColor:person_skinColor,
-          birthYear:person_birthYear
+          birthYear:person_birthYear,
+          vehicleConnection:person_vehicleConnection_vehicles
       }
        bus.$emit('mostrarDatos',this.data_object);
     }
