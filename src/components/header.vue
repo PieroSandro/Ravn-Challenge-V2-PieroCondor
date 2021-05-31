@@ -31,7 +31,7 @@ export default {
     margin-bottom: 16px;
     /*left:33px;*/
     /*top:16px;*/
-    font-family: 'SF Pro Display';
+   /* font-family: 'SF Pro Display';*/
     font-style: normal;
     font-weight: bold;
     font-size:17px;
