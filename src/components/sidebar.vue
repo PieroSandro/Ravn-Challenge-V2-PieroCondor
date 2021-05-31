@@ -23,15 +23,19 @@
            </p>
           </div>
           <div class="icon_right">
-            <i class="fas fa-chevron-right arrow_right"></i>
+            <i class="fas fa-chevron-right arrow"></i>
           </div>
           </div>
          
           </div>
         </div>
-        <div v-else-if="error">Sin datos</div>
-        <div v-else-if="loading">Cargando</div>
-        <div v-else>No result1</div>
+        <div v-else-if="error">
+          
+        </div>
+        <div v-else-if="loading">
+           <i class="fas fa-spinner loadicon"></i><label id="loading_text">Loading</label>
+        </div>
+        <div v-else></div>
       </template>
     </ApolloQuery>
 </div>
@@ -138,12 +142,29 @@ export default {
   margin-left:14.89px;
 }
 
-.fas{
-  color:#000000;
+.arrow{
+  color:#000000;/*#000000; */
   /*width:7.41px;
   height:12px;*/
   font-size:12px;
   margin-left:0px;
   margin-top:30px;
+}
+
+#loading_text{
+  text-align:right;
+   float:right;
+   margin-right:127px;
+   margin-top:18px;
+   size:17px;
+   height:20px;
+   color:#828282;
+   font-weight:bold;
+}
+
+.loadicon{
+  font-size:12px;
+   margin-top:24px;
+   margin-left:129px;
 }
 </style>
