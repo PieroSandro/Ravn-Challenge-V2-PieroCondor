@@ -8,7 +8,11 @@
           <div v-for="person in data.allPeople.people" :key="person.id" class="user-wrapper">
           <div class="person_data" 
           @click="show_data(person.eyeColor,person.hairColor,person.skinColor,person.birthYear,person.vehicleConnection.vehicles)">
+          <div class="text_left">
+           <p class="person_name">
             {{person.name}}
+           </p>
+           <p class="person_world">
             <template v-if="person.species==null">
            Human
             </template>
@@ -16,6 +20,11 @@
               {{person.species.name}}
             </template>
           from {{person.homeworld.name}}
+           </p>
+          </div>
+          <div class="icon_right">
+            <i class="fas fa-chevron-right arrow_right"></i>
+          </div>
           </div>
          
           </div>
@@ -86,9 +95,55 @@ export default {
 .person_data{
   height:69px;
   width:349px;
-  border-style: solid;
+ /* border-style: solid;
   border-width:1px;
-  border-color:red;
+  border-color:red;*/
+  border-bottom:1px solid rgba(0,0,0,0.1);
   cursor:pointer;
+  overflow:hidden;
+}
+
+.text_left{
+  width:317.59px;
+  height:69px;
+  float:left;
+}
+
+.icon_right{
+  overflow:hidden;
+  height:69px;
+  width:31.41px;
+}
+
+.person_name{
+  size:17px;
+  height:20px;
+  color:#333333;
+  font-weight:bold;
+  margin-bottom:0px;
+  text-align:left;
+  margin-top:16px;
+  margin-left:14.89px;
+
+}
+
+.person_world{
+  size:14px;
+  height:17px;
+  color:#828282;
+  font-weight:normal;
+  margin-top:0px;
+  text-align:left;
+  margin-bottom:16px;
+  margin-left:14.89px;
+}
+
+.fas{
+  color:#000000;
+  /*width:7.41px;
+  height:12px;*/
+  font-size:12px;
+  margin-left:0px;
+  margin-top:30px;
 }
 </style>
