@@ -30,12 +30,13 @@
           </div>
         </div>
         <div v-else-if="error">
-          
+        <label id="failed_text">Failed to Load Data</label>
         </div>
         <div v-else-if="loading">
            <i class="fas fa-spinner loadicon"></i><label id="loading_text">Loading</label>
         </div>
-        <div v-else></div>
+        <div v-else>
+        </div>
       </template>
     </ApolloQuery>
 </div>
@@ -166,5 +167,16 @@ export default {
   font-size:12px;
    margin-top:24px;
    margin-left:129px;
+}
+
+#failed_text{
+  text-align:center;
+   float:center;
+  /* margin-right:127px;*/
+   margin-top:16px;
+   size:17px;
+   height:20px;
+   color:#EC5757;
+   font-weight:bold;
 }
 </style>
